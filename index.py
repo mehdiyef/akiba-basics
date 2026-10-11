@@ -259,24 +259,41 @@ print(f"{x+y:.2f}")"""
 
 
     
+# import csv
     
-    
-with open("name.csv", "r") as file:
-    lines = file.readlines()
-    lilst=[]
+# with open("name.csv", "r") as file:
+#     reader = csv.reader(file)
+#     lines = file.readlines()
+#     lilst=[]
 
-    for line in sorted(lines, key=lambda line: line["name"]):
-        name, value=line.rstrip().split(",")
-        list.append({
-            "name": name,
-            "value": value
-        })
-        print("name", name, "value", value)
+#     for line in sorted(lines, key=lambda line: line["name"]):
+#         name, value=line.rstrip().split(",")
+#         list.append({
+#             "name": name,
+#             "value": value
+#         })
+#         print("name", name, "value", value)
         
         # print(line, end="")
         
 
     
+# =============================================================================
+# regular expresions in python
+
+import re
+
+email = input("Enter your email: ")
+
+if re.search(r"^\w+@[^@]+\.com$", email):
+    print("Valid")
+else:
+    print("Invalid")
+
+
+# =============================================================================
+# =============================================================================
+# =============================================================================
 # =============================================================================
 # =============================================================================
 # =============================================================================
