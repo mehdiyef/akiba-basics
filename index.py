@@ -281,18 +281,68 @@ print(f"{x+y:.2f}")"""
 # =============================================================================
 # regular expresions in python
 
-import re
+# import re
 
-email = input("Enter your email: ")
+# email = input("Enter your email: ")
 
-if re.search(r"^\w+@[^@]+\.com$", email):
-    print("Valid")
-else:
-    print("Invalid")
+# if re.search(r"^\w+@[^@]+\.com$", email):
+#     print("Valid")
+# else:
+#     print("Invalid")
 
 
 # =============================================================================
-# =============================================================================
+
+# oop in python 
+
+# class Student:
+#     def __init__(self, name, age, work):
+#         self.name = name
+#         self.age = age
+#         self.work = work
+
+#     def __str__(self):
+#         return f"Name: {self.name}\n Age: {self.age}\nwork: {self.work}"
+    
+    
+# student=Student("tehdi seid ali", 21, "software engineering")
+
+# print(student)
+
+# # student.name="tehdi"
+# # student.age = 21
+# # student.work = "software engineer"
+
+# print(student.name)
+# ============================================================================
+
+# decorators in python
+
+class Porson:
+    def __init__(self, name, age, id, mother_name):
+        
+        self.name=name
+        self.age=age
+        self.id = id
+        self._mother_name=mother_name
+        
+        @property
+        def mother_name(self):
+            return self._mother_name
+        
+        @mother_name.setter
+        def mother_name(self, mom):
+            if mom not in "fatima tsige":
+                raise ValueError("Invalid mom")
+            
+            self._mother_name = mom
+            
+            
+person= Porson("tehdi sedi", 21, "ru2090/17", "Fatima Tsige")
+
+person.mother_name="not mother name"
+print(person.mother_name)
+
 # =============================================================================
 # =============================================================================
 # =============================================================================
