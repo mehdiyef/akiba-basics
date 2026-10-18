@@ -109,6 +109,7 @@ while True:
         case "3":
             print("Exiting the program...")
             break
+        
         case _:
             print("Invalid choice. Please try again.")
             continue
