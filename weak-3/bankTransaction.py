@@ -1,42 +1,62 @@
-print("========================== bank transaction processor==========================   ")
+
+print("========================== bank transaction processor ==========================")
+
+history = []
+def deposit_money(balance, amount):
+    if amount < 0:
+        return None
+
+    return balance + amount
 
 
-def deposit_money(amount):
-    if not amount < 0:
-        balance+=amount
-        return balance
-    return None
-def withdraw_money(amount):
-    balance -= amount
+def withdraw_money(balance, amount):
+    if amount < 0 or amount > balance:
+        return None
+
+    return balance - amount
+
+
+def current_money(balance):
     return balance
 
-def current_money():
-    return balance
-history=[]
-balance=0
-def record_transaction(balance, action):
 
+def record_transaction(balance, amount, action):
     if action == "deposit":
-        history.append({
-            "type":action,
-            "amount":balance,
-            "balance":deposit_money(balance)
-        })
-    if action == "withdraw":
-        history.append({
-            "type":action,
-            "amount":balance,
-            "balance":withdraw_money(balance)
-        })
+        new_balance = deposit_money(balance, amount)
+
+    elif action == "withdraw":
+        new_balance = withdraw_money(balance, amount)
+
+    else:
+        return balance
+
+    if new_balance is None:
+        print("Invalid transaction!")
+        return balance
+
+    history.append({
+        "type": action,
+        "amount": amount,
+        "balance": new_balance
+    })
+
+    return new_balance
 
 
-record_transaction(1200, "deposit")
-record_transaction(1200, "deposit")
-record_transaction(1600, "withdraw")
+def transaction_summery():
+    balance = 0
 
-for h in history:
-    print(h["type"])
-    print(h["amount"])
-    print(h["balance"])
-    
-print(current_money())
+    balance = record_transaction(balance, 1200, "deposit")
+    balance = record_transaction(balance, 1200, "deposit")
+    balance = record_transaction(balance, 1600, "withdraw")
+
+    for h in history:
+        print("Type:", h["type"])
+        print("Amount:", h["amount"])
+        print("Balance:", h["balance"])
+        print("--------------------")
+
+    print("Current balance:", current_money(balance))
+
+
+transaction_summery()
