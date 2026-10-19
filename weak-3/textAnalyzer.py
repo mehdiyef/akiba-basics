@@ -1,3 +1,5 @@
+from shlex import join
+
 print("================================Text Statistics and Word Analyzer =========================")
 
 def count_words(para):
@@ -54,7 +56,7 @@ def main():
     para="Python is useful and Python  is powerful"
     print("Words: ", count_words(para))
     print("longest word: ", longest_word(para))
-    print("repeated word: ",repeated_words(para))
+    print("repeated word: ",", ".join(repeated_words(para)))
 
 
 if __name__ == "__main__":
